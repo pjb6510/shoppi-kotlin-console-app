@@ -12,13 +12,11 @@ class ShoppingCategory {
             seletedCategory = readLine()
         }
 
-        when (seletedCategory) {
-            "패션" -> println("패션 카테고리로 이동") // TODO: 카테고리 이동 구현
-            "전자기기" -> println("전자기기 카테고리로 이동")
-            "반려동물용품" -> println("반려동물용품 카테고리로 이동")
-            else -> {
-                showErrorMessage(seletedCategory)
-            }
+        if (categories.contains(seletedCategory)) {
+            val shoppingProductList = ShoppingProductList()
+            shoppingProductList.showProducts(seletedCategory)
+        } else {
+            showErrorMessage(seletedCategory)
         }
     }
 
