@@ -1,5 +1,10 @@
 package screen
 
+/**
+step1. 장바구니에 추가한 상품 관리
+step2. 사용자 입력값 요청 처리 공통화
+step3. 프로젝트 전역에서 참조하는 상수
+ */
 class ShoppingCategory {
     fun showCategories() {
         val categories = arrayOf("패션", "전자기기", "반려동물용품")
@@ -12,7 +17,10 @@ class ShoppingCategory {
             seletedCategory = readLine()
         }
 
-        if (categories.contains(seletedCategory)) {
+        if (seletedCategory == "#") {
+            val shoppingCart = ShoppingCart()
+            shoppingCart.showCartItems()
+        } else if (categories.contains(seletedCategory)) {
             val shoppingProductList = ShoppingProductList()
             shoppingProductList.showProducts(seletedCategory)
         } else {
